@@ -1,0 +1,32 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/> # Friend of a Friend (FOAF) vocabulary
+prefix sdo: <https://schema.org/> # Schema.org
+prefix owl: <http://www.w3.org/2002/07/owl#> # The OWL 2 Schema vocabulary (OWL 2)
+prefix xsd: <http://www.w3.org/2001/XMLSchema#> # XML Schema Definition
+
+prefix mark: <http://www.lindeman.nu/mark>
+
+mark: a sdo:Person, foaf:Person;
+  sdo:familyName "Lindeman" ;
+  sdo:givenName "Mark" ;
+  sdo:description "Ik ben een alround full-stack software en data engineer, met een specialisme in digitaal cultureel ergoed. Ik houd mij de laatste jaren vooral bezig met Linked Open Data en alles wat daar bij hoort."@nl ;
+  sdo:url "https://lindeman.nu/mark"^^xsd:anyURL;
+  sdo:email "mark@openstate.eu", "mark@lindeman.nu" ;
+  sdo:image "https://lindeman.nu/mark/mark-lindeman.jpg"^^xsd:anyURL ;
+  sdo:jobTitle "Senior Software Developer" ;
+  sdo:worksFor "Open State Foundation" ;
+
+  foaf:geekcode "MightyMax" ;
+  foaf:holdsAccount <https://mastodon.nl/@markuitalkmaar> ;
+  foaf:workplaceHomepage "https://openstate.eu"^^xsd:anyURL ;
+  foaf:myersBriggs "ESTP", "ISTP" ;
+.
+
+<https://mastodon.nl/@markuitalkmaar> a foaf:OnlineAccount;
+  foaf:accountName "@markuitalkmaar" .
+
+sdo:familyName owl:equivalentProperty foaf:familyName .
+sdo:givenName owl:equivalentProperty foaf:givenName .
+sdo:email owl:equivalentProperty foaf:mbox .
+sdo:image owl:equivalentProperty foaf:depiction .
+sdo:name owl:equivalentProperty foaf:name .
+

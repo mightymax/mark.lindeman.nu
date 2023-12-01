@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2023-12-01T00:00:00-00:00",
+  "dateModified": "2023-12-01T00:00:00-00:00",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Mark Lindeman",
+    "givenName": "Mark",
+    "familyName": "Lindeman",
+    "alternateName": "mightymax",
+    "description": "Mark Lindeman is een alround full-stack software en data engineer, met een specialisme in digitaal cultureel ergoed. Hij houdt zich de laatste jaren vooral bezig met Linked Open Data en alles wat daar bij hoort.",
+    "url": "https://lindeman.nu/mark",
+    "email":["mark@openstate.eu", "mark@lindeman.nu"],
+    "image": "https://lindeman.nu/mark/mark-lindeman.jpg",
+    "jobTitle": "Senior Software Developer",
+    "worksFor": "Open State Foundation",
+    "sameAs": "https://mastodon.nl/@markuitalkmaar"
+  }
+}
