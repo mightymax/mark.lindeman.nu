@@ -263,11 +263,11 @@ body {
     border-radius: 5px;
 }
 .colors {
-    position: absolute;
+    position: fixed;
     margin: 0px;
-    top: 50px;
+    top: 55px;
     padding: 2px;
-    right: 20px;
+    right: 25px;
     display: flex;
     flex-wrap: wrap;
     width: 300px;
