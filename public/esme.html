@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Esme</title>
+  <style>
+    .image-carousel {
+      transition: all 0.5s ease-in-out;
+      width: 640px;
+      height: 480px;
+      background-image: url('https://www.ampm.com/styles/ajax-loader.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-carousel loading">
+  </div>
+
+  <script type="text/javascript">
+    const imageSources = [
+      'https://picsum.photos/640/480?1',
+      'https://picsum.photos/640/480?2',
+      'https://picsum.photos/640/480?3',
+      'https://picsum.photos/640/480?4',
+      'https://picsum.photos/640/480?5',
+    ]
+    const timeOut = 1500
+    const loop = true
+    const images = []
+    let ix = 0
+    function carousel () {
+      const currentImage = images[ix === 0 ? images.length -1 : ix -1]
+      carouselContainer.style.backgroundImage = `url('${currentImage.src}')`
+      ix++
+      if (ix === images.length && loop) ix = 0
+      if (ix < images.length) setTimeout(carousel, timeOut)
+    }
+    const carouselContainer = document.querySelector('.image-carousel')
+    window.onload = () => {
+      let loaded = 0
+      for (const src of imageSources) {
+        const img = new Image()
+        img.onload = () => {
+          images.push(img)
+          if (++loaded === imageSources.length) {
+            carousel()
+          }
+        }
+        img.src=src
+      }
+    }
+  </script>  
+</body>
+</html>
