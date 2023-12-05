@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Tony</title>
+    <style>
+      body {
+        background-color: red;
+        color: white;
+        font-family: AmericanTypewriter, Courier New, Courier, typewriter;
+      }
+      .wikkel span { display: none;}
+      .loading span {
+        display: inherit !important
+      }
+      .wikkel img {
+        display: none;
+        width: 100%;
+      }
+      .wikkel img.current {
+        display: block;
+      }
+      .wikkel {
+        width: 480px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wikkel loading"><span>aan 't laden &hellip;</span></div>
+
+    <script type="text/javascript">
+      const images = [];
+      const delay = 100
+      for (let i = 1; i <= 21; i++) {
+        images.push(`tony/missie_00${i < 10 ? 0 : ''}${i}.jpg`)
+      }
+      // Het HTML element van de carousel:
+      const wikkelContainer = document.querySelector('.wikkel')
+
+      function next() {
+        const img = document.querySelector('img.current')
+        if (img.nextSibling) {
+          img.classList.remove('current')
+          img.nextSibling.classList.add('current')
+          if(img.nextSibling.nextSibling) setTimeout(next, delay)
+        }
+      }
+
+      window.onload = () => {
+        //teller die bijhoudt hoeveel afbeelding zijn ingeladen:
+        let loaded = 0
+
+        // preload alle afbeeldingen zodat de gebruikerservaring beter wordt:
+        for (const src of images) {
+          const img = new Image()
+          wikkelContainer.appendChild(img)
+          // als de image is ingeladen door de browser, hoog dan de teller op met 1:
+          img.onload = () => {
+            // als alle afbeeldingen zijn ingeladen, start dan de carousel:
+            if (++loaded === images.length) {
+              wikkelContainer.classList.remove('loading')
+              wikkelContainer.querySelector('img').classList.add('current')
+              setTimeout(next, delay)
+            }
+          }
+          img.src = src
+        }
+      }  
+    </script>
+  </body>
+
+</html>
