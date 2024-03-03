@@ -1,10 +1,10 @@
 /* Cinder,#120B17,#190f20,Fern,#5BBA78,#7fffa8,8,AAA */
 
 html {
-    --primary: #120b17;
-    --primary_light: #190f20;
-    --secundary: #5BBA78;
-    --secundary_light: #7fffa8;
+    --primary: #090000;
+    --primary_light: #0e0000;
+    --secundary: #487EA8;
+    --secundary_light: #73caff;
 }
 
 * {

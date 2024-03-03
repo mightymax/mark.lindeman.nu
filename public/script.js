@@ -16,6 +16,13 @@ const defaultColors = {
   secundary_light: "#7fffa8"
 }
 
+const keys = Object.keys(defaultColors)
+'Black,#090000,#0e0000,Steel Blue,#487EA8,#73caff,4.8,AA'
+  .split(',')
+  .map((val, i) => {
+    defaultColors[keys[i]] = val
+  })
+
 window.onload = () => {
   if(document.cookie) {
     const match = document.cookie.match(/palette=([a-z ]+) (#[a-f0-9]{6}) (#[a-f0-9]{6}) ([a-z ]+) (#[a-f0-9]{6}) (#[a-f0-9]{6})/i)
